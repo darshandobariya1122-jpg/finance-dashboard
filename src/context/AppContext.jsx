@@ -79,6 +79,11 @@ function appReducer(state, action) {
           (transaction) => Number(transaction.id) !== Number(action.payload),
         ),
       };
+    case 'RESET_TRANSACTIONS':
+      return {
+        ...state,
+        transactions: action.payload,
+      };
     default:
       return state;
   }
@@ -184,6 +189,13 @@ export function AppProvider({ children }) {
     });
   }
 
+  function resetDemoData() {
+    dispatch({
+      type: 'RESET_TRANSACTIONS',
+      payload: [],
+    });
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -197,6 +209,7 @@ export function AppProvider({ children }) {
         resetFilters,
         saveTransaction,
         removeTransaction,
+        resetDemoData,
       }}
     >
       {children}

@@ -30,6 +30,7 @@ function Dashboard() {
     canEdit,
     updateFilters,
     resetFilters,
+    resetDemoData,
     saveTransaction,
     removeTransaction,
   } = useAppContext();
@@ -110,6 +111,17 @@ function Dashboard() {
     }
   }
 
+  function handleResetDemoData() {
+    const shouldReset = window.confirm(
+      'Clear all demo transactions? This will remove the current local data so you can add your own entries from scratch.',
+    );
+
+    if (shouldReset) {
+      resetDemoData();
+      resetFilters();
+    }
+  }
+
   if (loading) {
     return <Loader label="Syncing dashboard data..." fullScreen />;
   }
@@ -178,6 +190,7 @@ function Dashboard() {
           totalCount={totalCount}
           onFilterChange={updateFilters}
           onResetFilters={resetFilters}
+          onResetDemoData={handleResetDemoData}
           onAddTransaction={openCreateModal}
           onEditTransaction={openEditModal}
           onDeleteTransaction={handleDelete}

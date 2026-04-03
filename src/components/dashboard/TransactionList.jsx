@@ -12,6 +12,7 @@ function TransactionList({
   totalCount,
   onFilterChange,
   onResetFilters,
+  onResetDemoData,
   onAddTransaction,
   onEditTransaction,
   onDeleteTransaction,
@@ -240,6 +241,16 @@ function TransactionList({
             >
               Reset filters
             </Button>
+            {canEdit ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                fullWidth
+                onClick={onResetDemoData}
+              >
+                Clear demo data
+              </Button>
+            ) : null}
             <div className="toolbar-actions__row">
               <Button
                 variant="secondary"
