@@ -21,10 +21,11 @@ function Navbar({ onToggleSidebar }) {
         </Button>
         <div>
           <p className="eyebrow">Financial command center</p>
-          <h1 className="topbar__title">Cashflow dashboard</h1>
+          <h1 className="topbar__title">Financial dashboard</h1>
           <p className="topbar__caption">
-            Track balance, review trends, and switch between Viewer and Admin modes.
+            Track balance, trends, and transactions from one clean workspace.
           </p>
+          <p className="topbar__byline">Built by Darshan Dobariya</p>
         </div>
       </div>
 

@@ -50,7 +50,11 @@ function IncomeExpenseChart({ monthlySeries }) {
             </div>
             <div className="trend-chart__footer">
               <strong>{entry.label}</strong>
-              <span>{formatCurrency(entry.income - entry.expense)}</span>
+              <span>Net {formatCurrency(entry.income - entry.expense)}</span>
+              <small>
+                In {formatCurrency(entry.income)} · Out{' '}
+                {formatCurrency(entry.expense)}
+              </small>
             </div>
           </div>
         ))}

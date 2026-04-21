@@ -134,10 +134,14 @@ function Dashboard() {
       <section className="hero">
         <div>
           <p className="eyebrow">Portfolio snapshot</p>
-          <h2>See the full financial picture in one responsive workspace.</h2>
+          <h2>Monitor cashflow, spending, and trends in one polished workspace.</h2>
           <p className="hero__copy">
-            The dashboard reacts instantly to role changes, active filters, and
-            transaction edits so you can review outcomes without leaving the page.
+            Switch roles, filter transactions, and review performance instantly
+            with a responsive finance dashboard built for clear decision-making.
+          </p>
+          <p className="hero__credit">
+            Designed and developed by Darshan Dobariya as a modern React finance
+            experience.
           </p>
         </div>
         <div className="hero__actions">

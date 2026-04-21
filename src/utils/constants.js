@@ -63,20 +63,20 @@ export const SIDEBAR_LINKS = [
 ];
 
 export const CATEGORY_COLORS = {
-  Salary: '#157f58',
-  Freelance: '#0f766e',
-  Food: '#d97706',
-  Transport: '#2563eb',
-  Housing: '#b45309',
-  Utilities: '#7c3aed',
-  Healthcare: '#dc2626',
-  Entertainment: '#db2777',
-  Shopping: '#9333ea',
-  Travel: '#0f766e',
+  Salary: '#0f766e',
+  Freelance: '#10b981',
+  Food: '#f59e0b',
+  Transport: '#3b82f6',
+  Housing: '#f97316',
+  Utilities: '#8b5cf6',
+  Healthcare: '#ef4444',
+  Entertainment: '#ec4899',
+  Shopping: '#a855f7',
+  Travel: '#14b8a6',
   Investment: '#0891b2',
-  Education: '#4338ca',
-  Insurance: '#475569',
-  Other: '#64748b',
+  Education: '#6366f1',
+  Insurance: '#64748b',
+  Other: '#94a3b8',
 };
 
 export const SUMMARY_CARD_CONFIG = [
