@@ -285,6 +285,11 @@ button {
   margin-bottom: 1.5rem;
 }
 
+.dashboard-section--deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: 720px;
+}
+
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr;

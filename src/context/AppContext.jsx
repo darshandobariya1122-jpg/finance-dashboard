@@ -11,13 +11,24 @@ import { FILTER_DEFAULTS, ROLES, THEME_OPTIONS } from '../utils/constants';
 
 const AppContext = createContext(null);
 
-const initialState = {
+const baseState = {
   transactions: [],
   role: ROLES.ADMIN,
   filters: { ...FILTER_DEFAULTS },
   theme: THEME_OPTIONS.LIGHT,
-  loading: true,
+  loading: false,
 };
+
+function createInitialState() {
+  const data = loadInitialState(mockTransactions);
+
+  return {
+    ...baseState,
+    transactions: data.transactions,
+    role: data.role,
+    theme: data.theme,
+  };
+}
 
 function appReducer(state, action) {
   switch (action.type) {
@@ -90,30 +101,7 @@ function appReducer(state, action) {
 }
 
 export function AppProvider({ children }) {
-  const [state, dispatch] = useReducer(appReducer, initialState);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function initializeApp() {
-      const data = await loadInitialState(mockTransactions);
-
-      if (!isMounted) {
-        return;
-      }
-
-      dispatch({
-        type: 'INITIALIZE',
-        payload: data,
-      });
-    }
-
-    initializeApp();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const [state, dispatch] = useReducer(appReducer, undefined, createInitialState);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', state.theme);

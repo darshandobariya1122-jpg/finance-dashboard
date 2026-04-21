@@ -1,7 +1,5 @@
 import { ROLES, STORAGE_KEYS, THEME_OPTIONS } from '../utils/constants';
 
-const LOAD_DELAY_MS = 550;
-
 function readStorage(key) {
   try {
     const raw = window.localStorage.getItem(key);
@@ -21,12 +19,6 @@ function writeStorage(key, value) {
   return value;
 }
 
-function wait(ms) {
-  return new Promise((resolve) => {
-    window.setTimeout(resolve, ms);
-  });
-}
-
 function getNextId(transactions) {
   if (!transactions.length) {
     return 1;
@@ -35,9 +27,7 @@ function getNextId(transactions) {
   return Math.max(...transactions.map((transaction) => Number(transaction.id))) + 1;
 }
 
-export async function loadInitialState(fallbackTransactions) {
-  await wait(LOAD_DELAY_MS);
-
+export function loadInitialState(fallbackTransactions) {
   return {
     transactions:
       readStorage(STORAGE_KEYS.TRANSACTIONS) ?? fallbackTransactions,

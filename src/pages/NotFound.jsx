@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 function NotFound() {
   return (
     <main className="not-found">
@@ -10,9 +8,9 @@ function NotFound() {
           The page you requested does not exist. Return to the financial dashboard
           to continue reviewing your data.
         </p>
-        <Link to="/dashboard" className="btn btn--primary btn--md">
+        <a href="/" className="btn btn--primary btn--md">
           Back to dashboard
-        </Link>
+        </a>
       </div>
     </main>
   );

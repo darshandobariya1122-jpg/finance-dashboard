@@ -4,7 +4,6 @@ import ExpenseChart from '../components/dashboard/ExpenseChart';
 import IncomeExpenseChart from '../components/dashboard/IncomeExpenseChart';
 import Insights from '../components/dashboard/Insights';
 import TransactionList from '../components/dashboard/TransactionList';
-import Loader from '../components/common/Loader';
 import Modal from '../components/common/Modal';
 import Button from '../components/common/Button';
 import DashboardLayout from '../components/layout/DashboardLayout';
@@ -26,7 +25,6 @@ function Dashboard() {
   const {
     transactions,
     filters,
-    loading,
     canEdit,
     updateFilters,
     resetFilters,
@@ -122,10 +120,6 @@ function Dashboard() {
     }
   }
 
-  if (loading) {
-    return <Loader label="Syncing dashboard data..." fullScreen />;
-  }
-
   return (
     <DashboardLayout
       activeSection={activeSection}
@@ -174,7 +168,10 @@ function Dashboard() {
         </div>
       </section>
 
-      <section id="insights" className="dashboard-section">
+      <section
+        id="insights"
+        className="dashboard-section dashboard-section--deferred"
+      >
         <div className="section-heading">
           <div>
             <p className="eyebrow">Insight engine</p>
@@ -184,7 +181,10 @@ function Dashboard() {
         <Insights insights={insights} />
       </section>
 
-      <section id="transactions" className="dashboard-section">
+      <section
+        id="transactions"
+        className="dashboard-section dashboard-section--deferred"
+      >
         <TransactionList
           transactions={visibleTransactions}
           allTransactions={transactions}
