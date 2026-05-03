@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
@@ -13,14 +14,29 @@ function App() {
   const path = normalizePath(window.location.pathname);
 
   if (path === '/dashboard') {
-    return <Dashboard />;
+    return (
+      <>
+        <Dashboard />
+        <SpeedInsights />
+      </>
+    );
   }
 
   if (path === '/') {
-    return <Dashboard />;
+    return (
+      <>
+        <Dashboard />
+        <SpeedInsights />
+      </>
+    );
   }
 
-  return <NotFound />;
+  return (
+    <>
+      <NotFound />
+      <SpeedInsights />
+    </>
+  );
 }
 
 export default App;
